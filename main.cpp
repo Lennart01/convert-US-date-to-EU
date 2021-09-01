@@ -6,30 +6,33 @@ string convertToNumericMonth(string month);
 
 int main() {
     string input;
-    cin >> input;
+    getline(cin,input);
     string date;
     string month;
     string year;
     int i =0;
     //get month
-    while(input[i] != ','){
+    while(input[i] != ',' && input[i] != ' ' && input[i] != '/'){
         month.push_back(input[i]);
         i++;
     }
     //get Date
     i++;
-    while(input[i] != ','){
+    while(input[i] != ',' && input[i] != ' ' && input[i] != '/'){
         date.push_back(input[i]);
         i++;
     }
     //get year
     i++;
-    while(input[i] != '\0'){
+    while(input[i] != '\0' && input[i] != '.'){
         year.push_back(input[i]);
         i++;
     }
     if(month.length()>2){
         month = convertToNumericMonth(month);
+    }
+    if(year[0] == ' '){
+        year.erase(0,1);
     }
     cout << date + "/" + month + "/" + year;
     return 0;
