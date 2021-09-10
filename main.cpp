@@ -62,8 +62,10 @@ string convertToNumericMonthNoSwitch(string month){
             stringstream convString;
             convString << conv;
             converted = convString.str();
+            return converted;
         }
     }
+    cout << "couldn't convert the month. Please check spelling" << endl;
     return converted;
 }
 
